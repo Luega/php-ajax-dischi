@@ -7,3 +7,19 @@
 html {
     font-size: 100%;
 }
+/* variables */
+:root {
+    --main-bg-color: #1e2d3b;
+    --card-bg-color: #2e3a46;
+}
+/* my classes */
+.my_flex-basis-5 {
+    flex-basis: calc((100% / 5) - 32px); /* card´s margin pixels */
+}
+/* MAIN */
+.main {
+    background-color: var(--main-bg-color);
+}
+.main .card {
+    background-color: var(--card-bg-color);
+}

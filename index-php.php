@@ -19,14 +19,18 @@ include_once __DIR__ . "/server/db.php";
         <div class="container-fluid">
             <div class="row w-75 m-auto">
                 <div class="col d-flex flex-wrap">
-                    <div class="card pt-4 m-3 d-flex my_flex-basis-5">
-                        <img class="w-75 m-auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Puttinontheritz.jpg/260px-Puttinontheritz.jpg" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title text-white text-center">Card title</h5>
-                            <h6 class="card-title text-white-50 text-center">info</h6>
-                            <h6 class="card-title text-white-50 text-center">info</h6>
+                    <!-- card -->
+                    <!-- faccio un ciclo foreach per stampare i dati del DB nel main, creando le cards -->
+                    <?php foreach ($DB as $album) { ?>
+                        <div class="card pt-4 m-3 d-flex my_flex-basis-5">
+                            <img class="w-75 m-auto" src="<?= $album['poster'] ?>" class="card-img-top" alt="<?= $album['title'] ?>">
+                            <div class="card-body">
+                                <h5 class="card-title text-white text-center"><?= $album['title'] ?></h5>
+                                <h6 class="card-title text-white-50 text-center"><?= $album['author'] ?></h6>
+                                <h6 class="card-title text-white-50 text-center"><?= $album['firstRelease'] ?></h6>
+                            </div>
                         </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
