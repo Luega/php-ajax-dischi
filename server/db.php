@@ -1,6 +1,6 @@
 <?php
 // qui creo il mio falso DB in php.
-$DB = [
+$albums = [
     [
         'poster' => "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Puttinontheritz.jpg/260px-Puttinontheritz.jpg",
         'title' => "New Jersey",
