@@ -33,8 +33,20 @@ include_once __DIR__ . "/server/db.php";
     <!-- targetto con l´id app il main in modo da poter utilizzarci dentro Vue.js. -->
     <main id="app" class="main min-vh-100">
         <div class="container-fluid">
-            <div class="row w-75 m-auto">
-                <div class="col py-5 d-flex flex-wrap">
+            <div class="row w-75 m-auto d-flex flex-column">
+                <div class="col pt-5">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Genre</label>
+                        <select class="form-select" id="inputGroupSelect01" @change="onChange($event)" v-model="key">
+                            <option selected>Choose...</option>
+                            <option value="all">all</option>
+                            <option value="rock">rock</option>
+                            <option value="pop">pop</option>
+                            <option value="metal">metal</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col pb-5 d-flex flex-wrap">
                     <!-- card -->
                     <!-- non useró piú php come in index-php.php, ma useró js rendendo la pagina dinamica. -->
                     <div class="card pt-4 m-3 d-flex my_flex-basis-5" v-for="album in albums">
@@ -57,6 +69,7 @@ include_once __DIR__ . "/server/db.php";
     <!-- cdn axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- link file js -->
-    <script src="./js/script.js"></script>
+    <!-- <script src="./js/script.js"></script> -->
+    <script src="./js/bonus-script.js"></script>
 </body>
 </html>
