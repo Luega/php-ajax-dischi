@@ -14,6 +14,9 @@ include_once __DIR__ . "/server/db.php";
     <title>Dischi</title>
 </head>
 <body>
+    <!-- HEADER -->
+    <!-- includo l´header come sottocomponente -->
+    <?php include_once __DIR__ . "/partials/header.php"; ?>
     <!-- MAIN -->
     <main class="main min-vh-100">
         <div class="container-fluid">
@@ -34,6 +37,9 @@ include_once __DIR__ . "/server/db.php";
                 </div>
             </div>
         </div>
-    </main>  
+    </main> 
+    <!-- FOOTER  -->
+    <!-- includo il footer come sottocomponente -->
+    <?php include_once __DIR__ . "/partials/footer.php"; ?>
 </body>
 </html>

@@ -9,17 +9,29 @@ html {
 }
 /* variables */
 :root {
-    --main-bg-color: #1e2d3b;
-    --card-bg-color: #2e3a46;
+    --first-bg-color: #1e2d3b;
+    --second-bg-color: #2e3a46;
 }
 /* my classes */
 .my_flex-basis-5 {
     flex-basis: calc((100% / 5) - 32px); /* card´s margin pixels */
 }
+/* HEADER */
+.header {
+    background-color: var(--second-bg-color);
+}
+.header .logo {
+    width: 50px;
+    height: auto;
+}
 /* MAIN */
 .main {
-    background-color: var(--main-bg-color);
+    background-color: var(--first-bg-color);
 }
 .main .card {
-    background-color: var(--card-bg-color);
+    background-color: var(--second-bg-color);
+}
+/* FOOTER */
+.footer {
+    background-color: var(--second-bg-color);
 }
