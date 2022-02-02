@@ -21,7 +21,7 @@ include_once __DIR__ . "/server/db.php";
     <main class="main min-vh-100">
         <div class="container-fluid">
             <div class="row w-75 m-auto">
-                <div class="col d-flex flex-wrap">
+                <div class="col py-5 d-flex flex-wrap">
                     <!-- card -->
                     <!-- faccio un ciclo foreach per stampare i dati del DB nel main, creando le cards -->
                     <?php foreach ($DB as $album) { ?>
