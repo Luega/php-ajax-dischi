@@ -1,50 +1,29 @@
 <?php
+// includo il db per poter usare i dati
 include_once __DIR__ . "/db.php";
 
+// se il parametro esiste allora:
 if (isset($_GET['genre']) !== false) {
+    // creo una variabile che prenda il valore del parametro.
     $genre = $_GET['genre'];
+    // se il genere é 'all' allora filteredAlbums (variabile creata ora) avrá il valore di albums del db.
     if ($genre === "all") {
-        header('Content-Type: application/json');
-        echo json_encode([
-            'results' => $albums,
-            'length' => count($albums)
-        ]);
-    } elseif ($genre === 'rock') {
-        $rockAlbums = [];
+        $filteredAlbums = $albums;
+    } else {
+        // altrimenti filteredAlbums sará un array vuoto.
+        $filteredAlbums = [];
+        // facciamo ciclare un foreach sull´array del db, in modo da filtrare tutti gli album con il genere uguale alla variabile genre (che ha lo stesso valore del parametro nella chiamta get) nel filteredAlbums.
         foreach ($albums as $album) {
-            if ($album['genre'] == "rock") {
-                array_push($rockAlbums, $album);
+            if ($album['genre'] === $genre) {
+                array_push($filteredAlbums, $album);
             }
-        };
-        header('Content-Type: application/json');
-        echo json_encode([
-          'results' => $rockAlbums,
-          'length' => count($rockAlbums)
-        ]);
-    } elseif ($genre === 'pop') {
-        $popAlbums = [];
-        foreach ($albums as $album) {
-            if ($album['genre'] == "pop") {
-                array_push($popAlbums, $album);
-            }
-        };
-        header('Content-Type: application/json');
-        echo json_encode([
-          'results' => $popAlbums,
-          'length' => count($popAlbums)
-        ]);
-    } elseif ($genre === 'metal') {
-        $metalAlbums = [];
-        foreach ($albums as $album) {
-            if ($album['genre'] == "metal") {
-                array_push($metalAlbums, $album);
-            }
-        };
-        header('Content-Type: application/json');
-        echo json_encode([
-          'results' => $metalAlbums,
-          'length' => count($metalAlbums)
-        ]);
+        }
     }
+    // convertiamo i dati in php in un file JSON, in modo da farlo leggere a Js.
+    header('Content-Type: application/json');
+    echo json_encode([
+      'results' => $filteredAlbums,
+      'length' => count($filteredAlbums)
+    ]);
 }
 ?>

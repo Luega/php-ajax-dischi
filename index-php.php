@@ -24,16 +24,11 @@ include_once __DIR__ . "/server/db.php";
                 <div class="col py-5 d-flex flex-wrap">
                     <!-- card -->
                     <!-- faccio un ciclo foreach per stampare i dati del DB nel main, creando le cards -->
-                    <?php foreach ($DB as $album) { ?>
-                        <div class="card pt-4 m-3 d-flex my_flex-basis-5">
-                            <img class="w-75 m-auto" src="<?= $album['poster'] ?>" class="card-img-top" alt="<?= $album['title'] ?>">
-                            <div class="card-body">
-                                <h5 class="card-title text-white text-center"><?= $album['title'] ?></h5>
-                                <h6 class="card-title text-white-50 text-center"><?= $album['author'] ?></h6>
-                                <h6 class="card-title text-white-50 text-center"><?= $album['firstRelease'] ?></h6>
-                            </div>
-                        </div>
-                    <?php } ?>
+                    <?php 
+                    foreach ($albums as $album) { 
+                        // includo il sottocomponente card senza _one dopo include, perché ad ogni album di albums ripeteró l´inclusione della card.
+                        include __DIR__ . "/partials/card.php"; 
+                    } ?>
                 </div>
             </div>
         </div>
