@@ -26,44 +26,26 @@ include_once __DIR__ . "/server/db.php";
     <title>Dischi</title>
 </head>
 <body>
-    <!-- HEADER -->
-    <!-- includo l´header come sottocomponente -->
-    <?php include_once __DIR__ . "/partials/header.php"; ?>
-    <!-- MAIN -->
     <!-- targetto con l´id app il main in modo da poter utilizzarci dentro Vue.js. -->
-    <main id="app" class="main min-vh-100">
-        <div class="container-fluid">
-            <div class="row w-75 m-auto d-flex flex-column">
-                <div class="col pt-5">
-                    <div class="input-group mb-3">
-                        <label class="input-group-text" for="inputGroupSelect01">Genre</label>
-                        <select class="form-select" id="inputGroupSelect01" @change="onChange($event)" v-model="key">
-                            <option selected>Choose...</option>
-                            <option value="all">all</option>
-                            <option value="rock">rock</option>
-                            <option value="pop">pop</option>
-                            <option value="metal">metal</option>
-                        </select>
+    <div id="app">
+        <!-- HEADER -->
+        <!-- includo il bonus-header come sottocomponente, al cui interno abbiamo il componente bonus-select -->
+        <?php include_once __DIR__ . "/partials/bonus-header.php"; ?>
+        <!-- MAIN -->
+        <main class="main min-vh-100">
+            <div class="container-fluid">
+                <div class="row w-75 m-auto d-flex flex-column">
+                    <div class="col py-5 d-flex flex-wrap">
+                        <!-- includo il componente bonus-card.php senza _one dopo include, perché potrei volerlo riutilizzare -->
+                        <?php include __DIR__ . '/partials/bonus-card.php' ?>        
                     </div>
                 </div>
-                <div class="col pb-5 d-flex flex-wrap">
-                    <!-- card -->
-                    <!-- non useró piú php come in index-php.php, ma useró js rendendo la pagina dinamica. -->
-                    <div class="card pt-4 m-3 d-flex my_flex-basis-5" v-for="album in albums">
-                        <img class="w-75 m-auto card-img-top" :src='album.poster' :alt='album.title'>
-                        <div class="card-body">
-                            <h5 class="card-title text-white text-center">{{ album.title }}</h5>
-                            <h6 class="card-title text-white-50 text-center">{{ album.author }}</h6>
-                            <h6 class="card-title text-white-50 text-center">{{ album.firstRelease }}</h6>
-                        </div>
-                    </div>            
-                </div>
             </div>
-        </div>
-    </main> 
-    <!-- FOOTER  -->
-    <!-- includo il footer come sottocomponente -->
-    <?php include_once __DIR__ . "/partials/footer.php"; ?>
+        </main> 
+        <!-- FOOTER  -->
+        <!-- includo il footer come sottocomponente -->
+        <?php include_once __DIR__ . "/partials/footer.php"; ?>
+    </div>
 
     <!-- SCRIPT JS -->
     <!-- cdn axios -->
